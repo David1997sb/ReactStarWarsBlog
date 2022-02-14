@@ -11,8 +11,8 @@ export const Home = () => {
 		
 		<h1 className="text-danger mt-2 mb-2">Characters</h1>
 		<div className="row">
-			{store.personajes.map((item)=>{
-				 <MainCard char={item}/>
+			{store.personajes.map((item,i)=>{
+				return <MainCard char={item} key={i}/>
 			})}
 			
 		</div>

@@ -29,7 +29,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			obtenerPersonajes: ()=>{
 				//codigo que quiero hacer
-				fetch('https://www.swapi.tech/api/people')
+				fetch('https://swapi.dev/api/people')
 				.then((response)=>response.json())
 				.then(data => setStore({personajes: data.results}))
 			},

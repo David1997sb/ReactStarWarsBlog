@@ -3,20 +3,12 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 
- const MainCard = ({char, key}) => {
+ const MainCard = ({char, index}) => {
 	const {store, actions} = useContext(Context);
-	console.log(char);
-	
-	/*useEffect(()=>{
-		actions.obtienePersonaje(char.uid)
-	},[])*/
-	var url = char.url.substr(-2,1);
-	//console.log(url.substr(key,-1));
-	console.log(url);
+	var charId = char.url.substr(-2,1);
 
-	
 	return (
-		<div className="col-2">
+	<div className="col-2">
 	<div className="card mt-2 mb-2">
 			<img src="https://dz2cdn1.dzone.com/storage/temp/13989969-400x200" className="card-img-top " alt="..."/>
 				<div className="card-body">
@@ -25,8 +17,8 @@ import { Context } from "../store/appContext";
 					<p className="card-text">Hair Color: {char.hair_color}</p>
 					<p className="card-text">Eye Color: {char.eye_color}</p>
 					<div className="d-flex justify-content-between">
-						<button href="#" className="btn btn-outline-primary">Learn more!</button>
-						<button href="#" className="btn btn-outline-warning"><i className="bi bi-heart"></i></button>
+					<Link className="btn btn-outline-primary" to={`/single/${charId}`}>Learn more</Link>
+					<button href="#" className="btn btn-outline-warning" onClick={() => {actions.guardaFavoritos(char.name, index)}}><i className="bi bi-heart"></i></button>
 					</div>
 				</div>
 		</div>

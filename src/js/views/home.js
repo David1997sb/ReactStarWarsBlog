@@ -8,11 +8,10 @@ export const Home = () => {
 	
 	return(
 	<div className="container">
-		
 		<h1 className="text-danger mt-2 mb-2">Characters</h1>
 		<div className="row">
 			{store.personajes.map((item,i)=>{
-				return <MainCard char={item} key={i}/>
+				return <MainCard char={item} key={i} index={i}/>
 			})}
 			
 		</div>

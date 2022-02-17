@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Single = props => {
+export const Planet = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	useEffect(()=>{
-		actions.obtienePersonaje(params.theid)
+		actions.obtienePlaneta(params.theid)
 	},[])
-	console.log(props);
+	console.log(store.personaje.properties);
 
 	return (
 		<div className="container">
@@ -31,24 +31,24 @@ export const Single = props => {
 					<p>{store.personaje.properties?.name}</p>
 				</div>
 				<div className="col-2 text-center">
-					<p>Birth Year</p>
-					<p>{store.personaje.properties?.birth_year}</p>
+					<p>Climate</p>
+					<p>{store.personaje.properties?.climate}</p>
 				</div>
 				<div className="col-2 text-center">
-					<p>Gender</p>
-					<p>{store.personaje.properties?.gender}</p>
+					<p>Population</p>
+					<p>{store.personaje.properties?.population}</p>
 				</div>
 				<div className="col-2 text-center">
-					<p>Height</p>
-					<p>{store.personaje.properties?.height}</p>
+					<p>Orbital Period</p>
+					<p>{store.personaje.properties?.orbital_period}</p>
 				</div>
 				<div className="col-2 text-center">
-					<p>Skin Color</p>
-					<p>{store.personaje.properties?.skin_color}</p>
+					<p>Rotation Period</p>
+					<p>{store.personaje.properties?.rotation_period}</p>
 				</div>
 				<div className="col-2 text-center">
-					<p>Eye Color</p>
-					<p>{store.personaje.properties?.eye_color}</p>
+					<p>diameter</p>
+					<p>{store.personaje.properties?.diameter}</p>
 				</div>
 			</div>
 			</div>
@@ -58,6 +58,6 @@ export const Single = props => {
 	);
 };
 
-Single.propTypes = {
+Planet.propTypes = {
 	match: PropTypes.object
 };

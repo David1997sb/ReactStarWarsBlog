@@ -18,9 +18,9 @@ export const Navbar = () => {
 						{store.favoritos.length}
 					</button>
 					<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-						<li><a className="dropdown-item" href="#">Action</a></li>
-						<li><a className="dropdown-item" href="#">Another action</a></li>
-						<li><a className="dropdown-item" href="#">Something else here</a></li>
+					{store.favoritos.map((item,i)=>{
+						return <li><a className="dropdown-item"> <span onClick={() => {actions.eliminaFav(item.id)}} className={"fa fa-trash"}></span>{item.name}</a></li>
+					})}
 					</ul>
 				</div>
 			</div>

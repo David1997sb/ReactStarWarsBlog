@@ -16,7 +16,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			personajes: [],
 			planetas: [],
 			personaje: {},
-			favoritos: []
+			favoritos: [],
+			planetas: [],
+			planeta:{}
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -43,9 +45,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 			guardaFavoritos(nombrePersonaje, id){
 				const store = getStore();
 				const fav = store.favoritos;
-				const prueba = [...fav, { name: nombrePersonaje }]
+				const prueba = [...fav, { name: nombrePersonaje, id:id }]
 				setStore({favoritos: prueba})
 				console.log(fav.length);
+			},
+
+			eliminaFav(id){
+				const store = getStore();
+				const fav = store.favoritos;
+				const favActualizado = fav.filter((item) => item.id !== id);
+				setStore({favoritos: favActualizado})
+				console.log("deberia de borrar");
+			},
+
+			obtenerPlanetas: ()=>{
+				//codigo que quiero hacer
+				fetch('https://swapi.dev/api/planets')
+				.then((response)=>response.json())
+				.then(data => setStore({planetas: data.results}))
+			},
+			obtienePlaneta: (id)=>{
+				fetch(`https://www.swapi.tech/api/planets/${id}`)
+				.then((response)=>response.json())
+				.then(data =>setStore({personaje:data.result}))
 			},
 			changeColor: (index, color) => {
 				//get the store

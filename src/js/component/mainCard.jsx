@@ -9,7 +9,7 @@ import { Context } from "../store/appContext";
 	if(isChar){
 		return (
 			<div className="col-2">
-			<div className="card mt-2 mb-2">
+			<div className="card mt-2 mb-2 h-100 w-100">
 					<img src="https://dz2cdn1.dzone.com/storage/temp/13989969-400x200" className="card-img-top " alt="..."/>
 						<div className="card-body">
 							{}
@@ -29,7 +29,7 @@ import { Context } from "../store/appContext";
 	}else{
 		return (
 			<div className="col-2">
-			<div className="card mt-2 mb-2">
+			<div className="card mt-2 mb-2 h-100 w-100">
 					<img src="https://dz2cdn1.dzone.com/storage/temp/13989969-400x200" className="card-img-top " alt="..."/>
 						<div className="card-body">
 							<h5 className="card-text">Name: {char.name}</h5>
